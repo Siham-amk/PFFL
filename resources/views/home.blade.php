@@ -17,5 +17,17 @@
         </div>
     </div>
 </div>
+
+<div class="row m-5">
+    <h1>Annonces</h1>
+    @foreach ($Annonces as $annonce)
+
+   
+    <x-annonce-card :annonce="$annonce"/>
+
+    @endforeach
+
+    {{$Annonces->links()}}
+</div>
 </x-masterAcceuil
 >

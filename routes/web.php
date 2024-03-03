@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnnonceController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -18,9 +19,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('acceuil');
 });
-Route::get('/home', function () {
-        return view('home');
-    })->name('home');
+// Route::get('/home', function () {
+//         return view('home');
+//     })->name('home');
+
+Route::get('/home', [AnnonceController::class, 'show'])->name('home');
+
 
 Route::get('/login', [LoginController::class,'show'])->name('login.show');
 Route::get('/profile', [ProfileController::class,'show'])->name('profile');
