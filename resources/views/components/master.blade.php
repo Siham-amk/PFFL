@@ -72,8 +72,8 @@
                
     
             
-              <img src="https://cdni.iconscout.com/illustration/premium/thumb/house-warming-8298685-6597433.png"
-                class="img-fluid mt-5 " alt=" image">
+              {{-- <img src="https://cdni.iconscout.com/illustration/premium/thumb/house-warming-8298685-6597433.png"
+                class="img-fluid mt-5 " alt=" image"> --}}
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 mt-5 mx-5">
 
@@ -87,7 +87,7 @@
         </div>
     </section>
 
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> 
     
 </body>
 </html>

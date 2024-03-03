@@ -21,6 +21,6 @@ class masterHome extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.master-home');
+        return view('components.masterAcceuil');
     }
 }
