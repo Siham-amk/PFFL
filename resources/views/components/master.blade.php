@@ -37,11 +37,17 @@
         }
         
         }
+        body{
+            /* background-color: red; */
+            background-image: url('/image/immob1.jpeg');
+            background-size: cover;
+        }
     </style>
 </head>
 <body>
 
     <section class="vh-100 ">
+        @include('partials.nav')
        
 
         <div class="container-fluid h-custom">
@@ -50,7 +56,6 @@
            
             
           <div class="row d-flex justify-content-center align-items-center h-100 ">
-            @include('partials.nav')
 
             
             <div class="row my-2">
@@ -71,11 +76,7 @@
             <div class="col-md-9 col-lg-6 col-xl-5 ">
                
     
-            
-              {{-- <img src="https://cdni.iconscout.com/illustration/premium/thumb/house-warming-8298685-6597433.png"
-                class="img-fluid mt-5 " alt=" image"> --}}
             </div>
-            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 mt-5 mx-5">
 
 
             {{$slot}}

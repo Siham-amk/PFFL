@@ -1,10 +1,11 @@
 
 <x-master >
 
+  <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 mx-5">
 
-              <form action={{route('login.login')}} method="POST">
+              <form action={{route('login.login')}} method="POST"class="my-4 py-2" >
                 @csrf
-                <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+                <div class="d-flex flex-row  justify-content-lg-start">
         
                 </div>
       
@@ -52,6 +53,7 @@
               </form>
            
       
+</div>
           
        
 </x-master>

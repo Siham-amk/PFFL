@@ -56,8 +56,13 @@
                         
                         
                         
-
+                        <form action="" method="POST">
+                            @csrf
+                            @method('PUT')
                         <button class="btn btn-primary">Éditer le profil</button>
+
+
+                        </form>
                     </div>
                 </div>
             </div>

@@ -6,7 +6,7 @@
             <h4 class="card-title">{{Str::limit($annonce->type,8)}}</h4>
             <p class="card-text">{{$annonce->nbchambre}}</p>
             
-            {{-- <a href={{route('annonce.show',$annonce->surface)}} class="stretched-link"></a> --}}
+            <a href={{route('annonce.show',$annonce->id)}} class="stretched-link"></a>
            
         </div>
         

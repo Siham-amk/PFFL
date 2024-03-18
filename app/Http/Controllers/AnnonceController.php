@@ -14,4 +14,13 @@ class AnnonceController extends Controller
         return view('home',compact("Annonces"));
 
     }
+    public function show_One(Request $request){
+        $id=$request->id;
+
+        $Annonce=Annonce::findOrFail($id);
+        // dd($request->id);
+
+        return view("Annonce.show",compact('Annonce'));
+
+    }
 }
