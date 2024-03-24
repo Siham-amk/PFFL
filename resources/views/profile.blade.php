@@ -14,13 +14,32 @@
             object-fit: cover;
             border-radius: 10px 10px 0 0;
         }
+        .icon{
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+      }
         .profile-picture {
-            width: 150px;
-            height: 150px;
+            width: 170px;
+            height: 170px;
             border-radius: 50%;
             border: 5px solid #fff; /* Ajouter une bordure blanche autour de l'image */
-            margin-top: -75px; /* Déplacer l'image vers le haut pour la superposer à la photo de couverture */
+            margin-top: -105px; /* Déplacer l'image vers le haut pour la superposer à la photo de couverture */
         }
+        .btn{
+            background-color:#1a7492 ;
+            color: white;
+        }
+        .btn:hover {
+            background-color: #083b4c;
+            color: white;
+
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        
     </style>
 </head>
 <body>
@@ -44,25 +63,36 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="container-fluid p-0">
-                        <img src="https://placekitten.com/1200/200" class="profile-cover" alt="Profile Cover">
+                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp" class="profile-cover" alt="Profile Cover">
+                        
                     </div>
-                    <div class="card-body text-center">
-                        
-                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp"  class="profile-picture " alt="Profile Picture">
-                        
-                            <h2 class="mt-3">{{Auth()->user()->prenom}} {{Auth()->user()->nom}}</h2>
-                            <p>Email: <a href="mailto:{{Auth()->user()->email}}">{{Auth()->user()->email}}</a></p>
-                            <p>Telephone:{{Auth()->user()->tele}}</p>
-                        
-                        
-                        
-                        <form action="" method="POST">
-                            @csrf
-                            @method('PUT')
-                        <button class="btn btn-primary">Éditer le profil</button>
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col">
+                                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp"  class="profile-picture " alt="Profile Picture">
+                            </div>
+                            <div class="col d-flex justify-content-end px-5">
+                                <form action="" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                <button class="btn btn-primary">Éditer le profil</button>
+        
+        
+                                </form>
+                            </div>
 
-
-                        </form>
+                            <h1 class="mb-4 ">{{Auth()->user()->prenom}} {{Auth()->user()->nom}}</h1>
+                            <p><img src="/image/mail.png" alt=""class="icon"> <a href="mailto:{{Auth()->user()->email}}">{{Auth()->user()->email}}</a></p>
+                            <p><img src="/image/telephone-call.png" alt=""class="icon">{{Auth()->user()->tele}}</p>
+                        </div>
+                        
+                        
+                        
+                           
+                        
+                        
+                        
+                       
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@
                     <!-- Petite image de profil -->
                     <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp" alt="Profile Picture" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 10px;">
                     <!-- Titre de la section -->
-                    <h5 class="card-title d-inline me-5">Ajouter une annonce</h5>
+                    <p class="card-title d-inline me-5">Ajouter une annonce</p>
                     <!-- Bouton pour créer une annonce -->
                     <button type="button" class="btn btn-primary btn-sm ms-5 ">Créer une annonce</button>
                 </div>
@@ -19,7 +19,7 @@
 </div>
 
 <div class="row m-5">
-    <h1>Annonces</h1>
+    <h1 class="mb-5">Annonces</h1>
     @foreach ($Annonces as $annonce)
 
    
