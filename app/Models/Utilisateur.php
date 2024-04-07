@@ -13,6 +13,12 @@ class Utilisateur extends Model
         "prenom",
         'email',
         'password',
-        'tele'
+        'tele',
+        'image',
+        'cover',
+        
     ];
+    public function Annonces(){
+        return $this->hasMany(Annonce::class,'idUtilisateur');
+    }
 }

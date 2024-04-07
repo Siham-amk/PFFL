@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body px-5 ">
-    <div class="container-fluid d-flex">
+    <div class="container-fluid d-flex ">
         <div class="row">
         <div class="col">
             <a class="navbar navbar-brand" href="#" style="color: white">Acceuil</a>
@@ -28,11 +28,11 @@
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{{Auth()->user()->prenom}}</a>
               <ul class="dropdown-menu">
              
-                <li class="dropdown-item"><a class="dropdown-item row" href="#">Link</a>
+                {{-- <li class="dropdown-item"><a class="dropdown-item row" href="#">Link</a>
                   <a class="dropdown-item row" href="#">Link</a>
-                </li>
-                <li><a class="dropdown-item" href={{ route('profile') }}>Votre profile</a></li>
-                <li><a class="dropdown-item" href="#">Modifier votre profile</a></li>
+                </li> --}}
+                <li><a class="dropdown-item" href={{route('profile.show',Auth()->user()->id)}}>Votre profile</a></li>
+                {{-- <li><a class="dropdown-item" href="#">Modifier votre profile</a></li> --}}
 
                 <li><a class="dropdown-item" type="submit" href={{route('login.logout')}}>Deconnexion</a></li>
 
@@ -40,7 +40,7 @@
             </li>
             @endauth
             @guest
-            <a class="btn m-1" type="submit" href={{route('login.login')}}>connecter</a>
+            <a class="btn m-1" type="submit" href={{route('login')}}>connecter</a>
             @endguest
 
 

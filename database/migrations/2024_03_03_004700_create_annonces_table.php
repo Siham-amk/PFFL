@@ -19,7 +19,6 @@ return new class extends Migration
             $table->integer("nbchambre");
             $table->integer("surface");
             $table->decimal("prix", 10, 2);
-            $table->integer("proprietaire");
             $table->boolean("estLouer")->default(false);
             $table->boolean("estAvender")->default(false);
 

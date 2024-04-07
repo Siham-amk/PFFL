@@ -34,7 +34,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             # code...
             $request->session()->regenerate();
-            return to_route('home');
+            return to_route('annonce.index');
         }else{
             return back()->withErrors(['email'=>"Email ou mot de passe incorrecte"])->onlyInput('email');
 
@@ -61,6 +61,8 @@ class LoginController extends Controller
             'password'=>'required|min:8|confirmed',
             'tele'=>'required',
             'email'=>'required|email|unique:Utilisateurs',
+            'image'=>'image|mimes:png,jpg,jpeg,svg|max:10240',
+            'cover'=>'image|mimes:png,jpg,jpeg,svg|max:10240',
 
         ]);
 
@@ -84,6 +86,6 @@ class LoginController extends Controller
         Session::flush();
         Auth::logout();
 
-        return to_route("login.login")->with("success","vous etes bien déconnecté");
+        return to_route("login")->with("success","vous etes bien déconnecté");
     }
 }

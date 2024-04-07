@@ -6,13 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
-        .Iphotos {
-            width: 700px;
-            height: 300px;
-
-            height: auto;
-        }
+        
 
         .icon {
             width: 25px;
@@ -40,15 +36,46 @@
 <body>
 
     <x-masterAcceuil>
-    <div class="body-container d-flex justify-content-center">
+        
+    <div class="body-container d-flex justify-content-center mt-5">
 
         {{-- {{$Annonce->id}} --}}
-        <div class=" d-flex justify-content-center p-3 m-3 w-75">
+        <div class=" d-flex justify-content-center p-3 m-3 mt-5">
             <div class="row d-flex  justify-content-center w-100">
 
-            <div class="card w-100 p-2">
+            <div class="card w-100 p-2 shadow">
                 <div class="text-center">
-                    <img src='/image/APRTM1.jpeg' alt="Annonce Image" class="Iphotos mb-3" style="width: 800px ; height:250px">
+                    <div id="demo" class="carousel slide d-flex justify-content-center align-items-center" data-bs-ride="carousel">
+
+                        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                            <!-- Indicators/dots -->
+                            <div class="carousel-indicators">
+                                @foreach ($Annonce->AnnonceImages as $key => $AnnonceImage)
+                                <button type="button" data-bs-target="#demo" data-bs-slide-to="{{ $key }}" @if($key === 0) class="active" @endif></button>
+                                @endforeach
+                            </div>
+                            <!-- The slideshow/carousel -->
+                            <div class="carousel-inner">
+                                @foreach ($Annonce->AnnonceImages as $key => $AnnonceImage)
+                                <div class="carousel-item @if($key === 0) active @endif">
+                                    <img src="{{ URL('storage/'.$AnnonceImage->image) }}" alt="Image {{ $key + 1 }}" class="d-block" style="width:700px; height:360px">
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        
+                       
+                        
+                        <!-- Left and right controls/icons -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                          <span class="carousel-control-next-icon"></span>
+                        </button>
+                      </div>
+                      
+                   
                     {{-- <img src="/image/location.png" alt="" id="love" class="icon"> --}}
                 </div>
                 <div>
@@ -56,6 +83,9 @@
                 <div class="info row ">
                     <div class="col px-5">
                     <h2>{{$Annonce->type}}</h2>
+
+            {{-- {{dd($Annonce->AnnonceImages)}} --}}
+
 
                         <p><img src="/image/location.png" alt="" class="icon">{{$Annonce->nbchambre}} Chambres</p>
                         <p><img src="/image/location.png" alt="" class="icon">{{$Annonce->surface}} m2</p>

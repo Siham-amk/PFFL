@@ -1,6 +1,6 @@
 @props(['annonce'])
-<div class="col-sm-3 ">
-    <div class="card mb-1"  >
+<div class="col-sm-6 col-md-4 col-lg-3">
+    <div class="card mb-1 shadow"  >
         <img class="card-img-top" src='/image/APRTM1.jpeg';alt="Title" />
         <div class="card-body">
             <h4 class="card-title">{{$annonce->type}}</h4>

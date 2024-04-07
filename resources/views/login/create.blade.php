@@ -1,10 +1,10 @@
 <x-master  >
 
-  <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 mx-5">
+  <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 mx-5 mt-5">
 
 <form action={{route('store')}} method="POST">
     @csrf
-    <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+    <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start ">
   
     </div>
 
@@ -15,10 +15,10 @@
 
 
     @error('nom')
-    <div class=" text-danger">{{$message}}</div>
+    <div class=" text-danger ">{{$message}}</div>
     @enderror
 
-    <div class="form-outline mb-2 d-flex">
+    <div class="form-outline mb-2 d-flex ">
         <div class="flex-row">
             <input type="text" name="nom" class="form-control form-control-lg" placeholder="Votre nom" value="{{old('nom')}}"/>
     
