@@ -37,15 +37,16 @@
 
     <x-masterAcceuil>
         
-    <div class="body-container d-flex justify-content-center mt-5">
+    <div class="body-container d-flex justify-content-center">
 
         {{-- {{$Annonce->id}} --}}
-        <div class=" d-flex justify-content-center p-3 m-3 mt-5">
+        <div class=" d-flex justify-content-center  mt-3">
             <div class="row d-flex  justify-content-center w-100">
 
-            <div class="card w-100 p-2 shadow">
-                <div class="text-center">
-                    <div id="demo" class="carousel slide d-flex justify-content-center align-items-center" data-bs-ride="carousel">
+            <div class="card w-100 pt-2 pb-2 mb-5 ">
+                <div class="info row ">
+                    
+                    <div id="demo" class="carousel slide d-flex justify-content-center align-items-center " data-bs-ride="carousel">
 
                         <div id="demo" class="carousel slide" data-bs-ride="carousel">
                             <!-- Indicators/dots -->
@@ -58,7 +59,7 @@
                             <div class="carousel-inner">
                                 @foreach ($Annonce->AnnonceImages as $key => $AnnonceImage)
                                 <div class="carousel-item @if($key === 0) active @endif">
-                                    <img src="{{ URL('storage/'.$AnnonceImage->image) }}" alt="Image {{ $key + 1 }}" class="d-block" style="width:700px; height:360px">
+                                    <img src="{{ URL('storage/'.$AnnonceImage->image) }}" alt="Image {{ $key + 1 }}" class="d-block" style="width:700px; height:400px">
                                 </div>
                                 @endforeach
                             </div>
@@ -80,8 +81,8 @@
                 </div>
                 <div>
                 </div>
-                <div class="info row ">
-                    <div class="col px-5">
+                <div class="container d-flex ">
+                    <div class="col ">
                     <h2>{{$Annonce->type}}</h2>
 
             {{-- {{dd($Annonce->AnnonceImages)}} --}}
@@ -91,7 +92,7 @@
                         <p><img src="/image/location.png" alt="" class="icon">{{$Annonce->surface}} m2</p>
                         <p><img src="/image/location.png" alt="" class="icon">{{$Annonce->adresse}} - {{$Annonce->ville}}</p>
                     </div>
-                    <div class="col-4 d-flex flex-column justify-content-between mx-5 px-3">
+                    <div class="col-4 d-flex flex-column justify-content-between mx-2">
                         <div class="row">
                             <h2 class="d-flex justify-content-end">{{$Annonce->prix}} dh</h2>
 

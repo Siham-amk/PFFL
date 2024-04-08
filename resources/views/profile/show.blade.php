@@ -137,7 +137,7 @@
                     </div>
                     
                     <div class="card mb-1"  >
-                        <img class="card-img-top" src='/image/APRTM1.jpeg';alt="Title" />
+                        <img class="card-img-top" src="{{ URL('storage/'.$annonce->AnnonceImages->first()->image) }}" alt="Première image"  style="height:360px">
                         <div class="card-body">
                             <h4 class="card-title">{{$annonce->type}}</h4>
                 

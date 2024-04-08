@@ -1,9 +1,18 @@
 @props(['annonce'])
 <div class="col-sm-6 col-md-4 col-lg-3">
-    <div class="card mb-1 shadow"  >
-        <img class="card-img-top" src='/image/APRTM1.jpeg';alt="Title" />
+    <div class="card mb-1 shadow "  >
+        
+        @if (!empty($annonce->AnnonceImages))
+           
+            <img src="{{ URL('storage/'.$annonce->AnnonceImages->first()->image) }}" alt="Première image" class="card-img-top " style="height:200px">
+
+
+        @endif
+        
         <div class="card-body">
             <h4 class="card-title">{{$annonce->type}}</h4>
+           
+            
 
             <p  class="card-text"><img src="/image/location.png" alt=""class="icon">{{Str::limit($annonce->adresse,20)}}</p>
             <p class="card-title font-weight-bold d-flex justify-content-end"><strong>{{$annonce->prix}} dh </strong></p>
