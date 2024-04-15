@@ -78,7 +78,7 @@
 
                             <form action="{{route('profile.update',[$editprofile->id])}}" method="POST" enctype="multipart/form-data">
                                 @method("PUT")
-                                @csrf
+                            
                            
                                 @csrf
                                 {{-- <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">

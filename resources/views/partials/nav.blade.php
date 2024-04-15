@@ -1,21 +1,24 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body px-5 ">
     <div class="container-fluid d-flex ">
-        <div class="row">
-        <div class="col">
-            <a class="navbar navbar-brand" href="#" style="color: white">Acceuil</a>
+        <div class="row mx-5">
+        <div class="col ">
+            <a class="navbar navbar-brand " href="{{route('annonce.index')}}" style="color: white"data-bs-toggle="tooltip" title="Acceuil">
+              {{-- <img  src="/image/home (1).png" alt="" style="width: 30px"> --}}
+              Acceuil</a>
         </div>
         {{-- <div class="col">
             <a class="navbar navbar-brand" href="#"style="color: white">Acceuil</a>
-        </div><div class="col">
-            <a class="navbar navbar-brand" href="#"style="color: white">Acceuil</a>
-        </div> --}}
+        </div>--}}
+        <div class="col ">
+            <a class="navbar navbar-brand" href="{{route('annoncelike.index')}}"style="color: white" data-bs-toggle="tooltip" title="les favouris"><img src="/image/heart (1).png" alt="" style="width: 30px"></a>
+        </div>
         </div>
         
-        
+      
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-      
+        
         
         <div class="collapse navbar-collapse m-2" id="navbarSupportedContent">
           
@@ -45,6 +48,7 @@
 
 
           </form>
+          
         </div>
     </div>
 </nav>

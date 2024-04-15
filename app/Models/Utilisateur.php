@@ -21,4 +21,20 @@ class Utilisateur extends Model
     public function Annonces(){
         return $this->hasMany(Annonce::class,'idUtilisateur');
     }
+    public function likes()
+{
+    return $this->belongsToMany(Annonce::class,  'annonce_likes', 'id_utilisateur', 'id_annonce')->withTimestamps();
+}
+
+public function likesAnnonces($annonce)
+{
+    return $this->likes()->where("id_annonce", $annonce->id)->exists();
+}
+
+
+
+
+
+
+
 }

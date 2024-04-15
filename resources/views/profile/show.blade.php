@@ -48,10 +48,15 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body p-3 shadow">
         <div class="container-fluid d-flex ">
-            <div class="row">
-            <div class="col mx-2">
-                <a class="navbar navbar-brand" href="{{route('annonce.index')}}" style="color: white"> acceuil </a>
+            <div class="row mx-5">
+            <div class="col ">
+                <a class="navbar navbar-brand " href="{{route('annonce.index')}}" style="color: white"data-bs-toggle="tooltip" title="Acceuil">
+                    {{-- <img  src="/image/home (1).png" alt="" style="width: 30px"> --}}
+                    Acceuil</a>
                 
+            </div>
+            <div class="col ">
+                <a class="navbar navbar-brand" href="{{route('annoncelike.index')}}"style="color: white" data-bs-toggle="tooltip" title="les favouris"><img src="/image/heart (1).png" alt="" style="width: 30px"></a>
             </div>
             
             </div> 
@@ -127,13 +132,25 @@
                     <!-- Petite image de profil -->
                     <div class="col d-flex pb-3">
                         <div>
-                            <img src={{ URL('storage/'.$profile->image) }} alt="Profile Picture" class="rounded-circle shadow" style="width: 50px; height: 50px; margin-right: 10px;">
+                            <img src={{ URL('storage/'.$profile->image) }} alt="Profile Picture" class="rounded-circle border" style="width: 50px; height: 50px; margin-right: 10px;">
 
                         </div>
                         <div >
                     <h6 class="pt-3">{{$profile->nom}} {{$profile->prenom}}</h6>
 
                         </div>
+                        <div class=" col d-flex justify-content-end">
+                            <div class="dropdown ">
+                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                  
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <li><a class="dropdown-item" href="{{route('annonce.edit', $annonce->id)}}">Éditer</a></li>
+                                  <li><a class="dropdown-item" href="#">Supprimer</a></li>
+                                </ul>
+                              </div>
+                        </div>
+                       
                     </div>
                     
                     <div class="card mb-1"  >
@@ -161,7 +178,7 @@
 </div>
 
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 

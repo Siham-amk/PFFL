@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    
     <style>
+        .icon{
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+      }
+      
         .divider:after,
         .divider:before {
             content: "";
@@ -91,7 +97,6 @@
        }
        .text-section{
             max-width: 60%;
-          
        }
        .cta-section{
         display: flex;
@@ -105,23 +110,52 @@
        .cta-section .btn{
             padding: 0.3em 0.5em; 
        }
-
-       
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src={{ asset('js/jquery.min.js') }}></script>
-
-
 </head>
 <body>
+ 
 
-   
-           
-           
-            @include('partials.nav')
-            {{$slot}}
-           
-          
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body p-3 shadow">
+        <div class="container-fluid d-flex ">
+            <div class="row">
+            <div class="col mx-2">
+                <a class="navbar navbar-brand" href="{{route('annonce.index')}}" style="color: white"> acceuil </a>
+                
+            </div>
+            
+            </div> 
+        </div>
+    </nav>
+    <div class="fluide bg-light p-5">
+        
+        <div class="row justify-content-center ">
+            <h1 class="mb-5">Les Favouris</h1>
+
+{{-- <div class="m3"> --}}
+    <div class="row ">
+
+    @if ($annoncesAimees)
+        @foreach ($annoncesAimees as $AnnonceLike)
+
+
+             <x-annonce-card :annonce="$AnnonceLike" />
+        
+        @endforeach
+        
+        {{$annoncesAimees->links()}}
+    @else
+        <p>{{"vide"}} </p>
+
+    @endif
+</div>
+
+</div>
+    </div>
+        </div>
+        
+    
 </body>
 </html>
+
+
+

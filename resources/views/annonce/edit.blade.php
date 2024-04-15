@@ -5,7 +5,8 @@
     <div class="row justify-content-center ">
         <div class="col-md-8">
             <div class="card p-4 shadow">
-                <form action="{{route('annonce.store')}}" method="POST" enctype="multipart/form-data">
+              <form action="{{route('annonce.update',[$editannonce->id])}}" method="POST" enctype="multipart/form-data">
+                @method("PUT")
                   @csrf
 
 
@@ -24,7 +25,7 @@
               
                   <div class="d-flex align-items-center my-4">
                     
-                    <h1>Creer une annonce</h1>
+                    <h1>Editer annonce</h1>
                   </div>
                 
                   <div class="form-outline mb-2 d-flex">
@@ -33,7 +34,7 @@
                           <div class=" text-danger">{{$message}}</div>
                           @enderror
                           <label for="type" class="px-2 h6">type :</label>
-                          <input type="text" name="type" class="form-control " placeholder="type" value="{{old('type')}}"/>
+                          <input type="text" name="type" class="form-control " placeholder="type" value="{{old('type',$editannonce->type)}}"/>
                   
                       </div>
                     
@@ -44,7 +45,7 @@
                       @enderror
                         <label class=" px-2 h6 " for="prix">Prix :</label>
   
-                        <input type="number" name="prix" class="form-control " placeholder="prix" value=""/>
+                        <input type="number" name="prix" class="form-control " placeholder="prix" value="{{old('prix',$editannonce->prix)}}"/>
   
   
                         
@@ -58,7 +59,7 @@
                       @enderror
                       <label class=" px-2 h6 " for="ville">ville :</label>
 
-                      <input type="text" name="ville" class="form-control " placeholder="ville" value="{{old('ville')}}"/>
+                      <input type="text" name="ville" class="form-control " placeholder="ville" value="{{old('ville',$editannonce->ville)}}"/>
                   </div>
                   <div class="form-outline mb-2 px-1">
                     @error('adresse')
@@ -66,7 +67,7 @@
                     @enderror
                     <label class=" px-2 h6 " for="adresse">adresse :</label>
 
-                    <input type="text" name="adresse" class="form-control " placeholder=" adresse" value="{{old('adresse')}}"/>
+                    <input type="text" name="adresse" class="form-control " placeholder=" adresse" value="{{old('adresse',$editannonce->adresse)}}"/>
                 </div>
 
                 <div class="form-outline mb-2 d-flex">
@@ -76,7 +77,7 @@
                     @enderror
                     <label class=" px-2 h6 " for="nbchambre">Nombre de chambre :</label>
 
-                    <input type="number" name="nbchambre" class="form-control " placeholder="Nombre de chambre" value="{{old('nbchambre')}}"/>
+                    <input type="number" name="nbchambre" class="form-control " placeholder="Nombre de chambre" value="{{old('nbchambre',$editannonce->nbchambre)}}"/>
                 </div>
 
                   
@@ -87,7 +88,7 @@
                     @enderror
                       <label class=" px-2 h6 " for="surface">surface :</label>
 
-                      <input type="number" name="surface" class="form-control " placeholder="surface" value=""/>
+                      <input type="number" name="surface" class="form-control " placeholder="surface" value="{{old('surface',$editannonce->surface)}}"/>
                       
                       </div>
 

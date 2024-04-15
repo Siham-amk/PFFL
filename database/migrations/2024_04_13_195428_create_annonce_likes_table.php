@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('utilisateurs', function (Blueprint $table) {
-            //
-            $table->string('image',150)->default('profile/profil.jpg')->after('tele');
+        
+        Schema::create('annonce_likes', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('id_utilisateur')->constrained()->cascadeOnDelete();
+            $table->foreignId('id_annonce')->constrained()->cascadeOnDelete();
+            $table->timestamps();
+
         });
     }
 
@@ -22,10 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('utilisateurs', function (Blueprint $table) {
-            //
-            $table->dropColumn('image');
-
-        });
+        Schema::dropIfExists('annonce_likes');
     }
 };

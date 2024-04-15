@@ -5,8 +5,8 @@
     <div class="row justify-content-start">
         
         <div class="col-md-6 ">
-            <div class="card mt-5">
-                <div class="card-body text-start shadow">
+            <div class=" mt-5">
+                <div class=" text-start shadow create p-3">
                     <!-- Petite image de profil -->
                     <img src={{ URL('storage/'.Auth()->user()->image) }}  alt="Profile Picture" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 10px;">
                     <!-- Titre de la section -->
@@ -26,8 +26,9 @@
     <h1 class="mb-5">Annonces</h1>
     @foreach ($Annonces as $annonce)
 
-   
-    <x-annonce-card :annonce="$annonce"/>
+    
+    <x-annonce-card :annonce="$annonce" />
+
 
     @endforeach
 

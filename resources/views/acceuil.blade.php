@@ -20,7 +20,7 @@
     <x-master>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 py-5">
   
-            <div class=" d-flex  mb-4 pb-4 titre ">
+            <div class=" d-flex  mb-4 pb-4 titre py-5">
                 <h1  >Loca-</h1>
                 <h1 >Maison</h1>
             </div>

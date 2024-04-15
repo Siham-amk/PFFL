@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('utilisateurs', function (Blueprint $table) {
             //
-            $table->string('cover',150)->after('image');
+            $table->string('cover',150)->default('cover/BACK8.png')->after('image');
 
         });
     }
