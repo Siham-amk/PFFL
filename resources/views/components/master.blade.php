@@ -42,6 +42,7 @@
             background-image: url('/image/immob1.jpeg');
             background-size: cover;
         }
+        
     </style>
 </head>
 <body>

@@ -46,21 +46,13 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body p-3 shadow">
-        <div class="container-fluid d-flex ">
-            <div class="row">
-            <div class="col mx-2">
-                <a class="navbar navbar-brand" href="{{route('annonce.index')}}" style="color: white"> acceuil </a>
-                
-            </div>
-            
-            </div> 
-        </div>
-    </nav>
+    @include('partials.nav')
+
 
     
     <!-- Profil -->
     <div class="fluide bg-light">
+    <div class="container ">
         
         <div class="row justify-content-center ">
             <div class="col-md-8">

@@ -46,22 +46,8 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body p-3 shadow">
-        <div class="container-fluid d-flex ">
-            <div class="row mx-5">
-            <div class="col ">
-                <a class="navbar navbar-brand " href="{{route('annonce.index')}}" style="color: white"data-bs-toggle="tooltip" title="Acceuil">
-                    {{-- <img  src="/image/home (1).png" alt="" style="width: 30px"> --}}
-                    Acceuil</a>
-                
-            </div>
-            <div class="col ">
-                <a class="navbar navbar-brand" href="{{route('annoncelike.index')}}"style="color: white" data-bs-toggle="tooltip" title="les favouris"><img src="/image/heart (1).png" alt="" style="width: 30px"></a>
-            </div>
-            
-            </div> 
-        </div>
-    </nav>
+    @include('partials.nav')
+
     <div class="container-fluid bg-light ">
     <!-- Profil -->
     <div class="container ">
@@ -104,9 +90,13 @@
 
    <!-- Section de publication des annonces -->
 <div class="container mt-2">
+
     <div class="row justify-content-center">
         <div class="col-md-8 ">
+
+
             <div class="card shadow">
+
                 <div class="card-body text-start">
                     <!-- Petite image de profil -->
                     <img src={{ URL('storage/'.$profile->image) }} alt="Profile Picture" class="rounded-circle shadow" style="width: 50px; height: 50px; margin-right: 10px;">
@@ -119,59 +109,80 @@
         </div>
     </div>
 </div>
+
 <div class="container mt-3">
     <div class="row justify-content-center">
 
         <div class="col-md-8 ">
-<h3 class="pb-2 px-2 color-light">vos annonces</h3>
+{{-- <h3 class="pb-2 px-2 color-light">vos annonces</h3> --}}
+<hr>
+
+<h4 class="mb-3 display-6 px-5 text-secondary">vos annonces</h4>
+
+<div class="row my-2">
+    @include('partials.flashbag')
+
+</div>
+
+@if (!empty($profile->Annonces))
 @foreach ($profile->Annonces as $annonce)
 
-            <div class="card shadow-lg">
-                <div class="card-body text-start">
-                    
-                    <!-- Petite image de profil -->
-                    <div class="col d-flex pb-3">
-                        <div>
-                            <img src={{ URL('storage/'.$profile->image) }} alt="Profile Picture" class="rounded-circle border" style="width: 50px; height: 50px; margin-right: 10px;">
+<div class="card shadow-lg">
+    <div class="card-body text-start">
+        
+        <!-- Petite image de profil -->
+        <div class="col d-flex pb-3">
+            <div>
+                <img src={{ URL('storage/'.$profile->image) }} alt="Profile Picture" class="rounded-circle border" style="width: 50px; height: 50px; margin-right: 10px;">
 
-                        </div>
-                        <div >
-                    <h6 class="pt-3">{{$profile->nom}} {{$profile->prenom}}</h6>
+            </div>
+            <div >
+        <h6 class="pt-3">{{$profile->nom}} {{$profile->prenom}}</h6>
 
-                        </div>
-                        <div class=" col d-flex justify-content-end">
-                            <div class="dropdown ">
-                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                  
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                  <li><a class="dropdown-item" href="{{route('annonce.edit', $annonce->id)}}">Éditer</a></li>
-                                  <li><a class="dropdown-item" href="#">Supprimer</a></li>
-                                </ul>
-                              </div>
-                        </div>
-                       
-                    </div>
-                    
-                    <div class="card mb-1"  >
-                        <img class="card-img-top" src="{{ URL('storage/'.$annonce->AnnonceImages->first()->image) }}" alt="Première image"  style="height:360px">
-                        <div class="card-body">
-                            <h4 class="card-title">{{$annonce->type}}</h4>
-                
-                            <p  class="card-text"><img src="/image/location.png" alt=""class="icon">{{Str::limit($annonce->adresse,20)}}</p>
-                            <p class="card-title font-weight-bold d-flex justify-content-end"><strong>{{$annonce->prix}} dh </strong></p>
-                
-                            
-                            <a href={{route('annonce.show',$annonce->id)}} class="stretched-link"></a>
-                           
-                        </div>
-                    
-                    </div>
-
-                </div>
+            </div>
+            <div class=" col d-flex justify-content-end">
+                <div class="dropdown ">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                      
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <li><a class="dropdown-item" href="{{route('annonce.edit', $annonce->id)}}">Éditer</a></li>
+                      <li>
+                        <form action="{{route('annonce.destroy', ['annonce' =>$annonce->id])}}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-danger bg-danger">Supprimer</button>
+                        </form></li>
+                    </ul>
+                  </div>
             </div>
            
-            @endforeach
+        </div>
+        
+        <div class="card mb-1"  >
+            <img class="card-img-top" src="{{ URL('storage/'.$annonce->AnnonceImages->first()->image) }}" alt="Première image"  style="height:360px">
+            <div class="card-body">
+                <h4 class="card-title">{{$annonce->type}}</h4>
+    
+                <p  class="card-text"><img src="/image/location.png" alt=""class="icon">{{Str::limit($annonce->adresse,20)}}</p>
+                <p class="card-title font-weight-bold d-flex justify-content-end"><strong>{{$annonce->prix}} dh </strong></p>
+    
+                
+                <a href={{route('annonce.show',$annonce->id)}} class="stretched-link"></a>
+               
+            </div>
+        
+        </div>
+
+    </div>
+</div>
+
+@endforeach
+@else
+    
+    vide
+    
+@endif
 
         </div>
     </div>

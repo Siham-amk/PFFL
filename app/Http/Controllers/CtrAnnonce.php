@@ -158,5 +158,10 @@ class CtrAnnonce extends Controller
     public function destroy(string $id)
     {
         //
+        $annonceAsupprimer = Annonce::findOrFail($id);
+        $annonceAsupprimer->delete();
+        return redirect()->route('profile.show',[Auth::id()])->with("success","L'annonce a été supprimé avec succès");
+        // return redirect()->back();
+        
     }
 }

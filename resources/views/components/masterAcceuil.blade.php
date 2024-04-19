@@ -105,7 +105,8 @@
        .cta-section .btn{
             padding: 0.3em 0.5em; 
        }
-
+       
+       
        
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -119,6 +120,7 @@
            
            
             @include('partials.nav')
+            
             {{$slot}}
            
           

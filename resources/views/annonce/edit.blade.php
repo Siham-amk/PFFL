@@ -47,7 +47,6 @@
   
                         <input type="number" name="prix" class="form-control " placeholder="prix" value="{{old('prix',$editannonce->prix)}}"/>
   
-  
                         
                         </div>
                   </div>

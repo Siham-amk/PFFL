@@ -33,7 +33,7 @@ Route::get('/', function () {
 Route::resource('profile',CtrProfile::class)->middleware('auth'); 
 Route::resource('annonce',CtrAnnonce::class)->middleware('auth'); 
 
-Route::resource('annoncelike',CtrLike::class); 
+Route::resource('annoncelike',CtrLike::class)->middleware('auth');; 
 Route::post('/annonce/{id}/like', [CtrLike::class, 'like'])->name('annonce.like');
 Route::post('/annonce/{id}/dislike', [CtrLike::class, 'dislike'])->name('annonce.dislike');
 Route::get('/annonce/{id}/like', [CtrLike::class, 'like'])->name('annonce.like');

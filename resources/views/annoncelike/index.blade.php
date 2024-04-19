@@ -115,21 +115,12 @@
 <body>
  
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body p-3 shadow">
-        <div class="container-fluid d-flex ">
-            <div class="row">
-            <div class="col mx-2">
-                <a class="navbar navbar-brand" href="{{route('annonce.index')}}" style="color: white"> acceuil </a>
-                
-            </div>
-            
-            </div> 
-        </div>
-    </nav>
-    <div class="fluide bg-light p-5">
+    @include('partials.nav')
+
+    <div class="fluide bg-light p-4">
         
         <div class="row justify-content-center ">
-            <h1 class="mb-5">Les Favouris</h1>
+            <h1 class="mb-3 display-6 px-5">Mes favouris</h1>
 
 {{-- <div class="m3"> --}}
     <div class="row ">
@@ -153,6 +144,7 @@
     </div>
         </div>
         
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
 </body>
 </html>
